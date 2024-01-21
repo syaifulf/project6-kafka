@@ -15,11 +15,11 @@ UPDATE_INTERVAL = 1
 ROLLOVER = 10 # Number of displayed data points
 
 source = ColumnDataSource({"x": [], "y": []})
-consumer = Consumer({'bootstrap.servers': 'pkc-n3603.us-central1.gcp.confluent.cloud:9092', 'security.protocol': 'SASL_SSL', 'sasl.mechanisms': 'PLAIN', 'sasl.username': 'ZPGX5AS3WRSI7ZUI', 'sasl.password': 'qQUiYQb721qjj3C2VivFt+GcwMtmaba3rgiYtOYxconSG9HuZZJxqBlezAtjcZ0p', 'group.id': 'python_example_group_1', 'auto.offset.reset': 'earliest'})
+consumer = Consumer({'bootstrap.servers': 'xxx', 'security.protocol': 'SASL_SSL', 'sasl.mechanisms': 'PLAIN', 'sasl.username': 'xxx', 'sasl.password': 'xxx', 'group.id': 'python_example_group_1', 'auto.offset.reset': 'earliest'})
 # Set up a callback to handle the '--reset' flag.
 
 # Subscribe to topic
-consumer.subscribe(['syaifulfahmi-data-clean'])
+consumer.subscribe(['xxx'])
 div = Div(
     text='',
     width=120,
