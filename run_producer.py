@@ -2,6 +2,7 @@
 from argparse import ArgumentParser, FileType
 from configparser import ConfigParser
 from confluent_kafka import Producer
+import time
 
 if __name__ == '__main__':
     # Parse the command line.
@@ -29,7 +30,14 @@ if __name__ == '__main__':
         else:
             print("Topic {}, Event msg = {}".format(msg.topic(), msg.value().decode('utf-8')))
 
-    producer.produce(args.topic, args.msg, callback=delivery_callback)
+    data = open('/project/hands-on/beach-water-quality-automated-sensors-1.csv','r').read().split("\n")
+    for msg in data:
+        producer.produce(args.topic, msg, callback=delivery_callback)
+        print(msg)
+        time.sleep(1)
+    
+
+    # producer.produce(args.topic, args.msg, callback=delivery_callback)
 
     # Block until the messages are sent.
     producer.poll(10000)
